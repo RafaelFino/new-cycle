@@ -1,0 +1,203 @@
+O que queremos resolver:
+    - Cadastro de candidatos
+    - Cadastro de empresas
+    - Cadastro de propostas
+    - Cadastro de skills
+    - Maneira de metrificar as skills
+    - Maneira de metrificar as experiências
+    - Maneira de metrificar as propostas
+    - Relatório com todos os candidatos
+    - Relatório com todas as propostas
+    - Relatório com todos as devolutivas
+
+MVP Rápido - Planilha:
+    - Planilha com todos os candidatos
+    - Planilha com todas as propostas
+
+MVP Bonito - Banco e Web
+    Cadastro:
+        - Form para cadastro de candidato
+            - Seleção de tech skills
+            - Seleção de soft skills
+            - Cadastro de experiência
+        - Form para cadastro de empresa
+        - Form para cadastro de proposta
+            - Seleção dos requisitos
+            - Cadastro da remuneração
+        - Form para devolutiva das candidaturas
+            - Envio da devolutiva do candidato
+            - Envio da devolutiva da empresa
+
+    Consultas:
+        - Consulta de candidatos
+        - Consulta de propostas
+        - Consulta de devolutivas
+
+    Alterações:
+        - CRUD -> Direto via banco
+
+Solução alvo:
+    Linkedin + Tinder + PowerBI
+
+Modelo de dados:
+
+Student
+    ID: (int)
+    Visible: (true|false)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+StudentDetails
+    StudentID: (int)
+    Name: (string)
+    Location: (string)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+Location
+    ID: (int)
+    Address: (string)
+    Number: (string)  
+    Neighborhood: (string)
+    Country: (string)
+    State: (string)
+    City: (string)
+    ZipCode: (string)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false) 
+
+StudentDocument
+    ID: (int)
+    StudentID: (int)
+    Type (cpf|rg|passport|visa|cnh|driverslicense|birthcertificate)
+    Value: (string)
+    ExpireAt: (date) 
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)   
+
+StudentContact
+    ID: (int)
+    StudentID: (int)
+    Type (email|phone|linkedin|facebook|github)
+    Value: (string)    
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+Experience
+    ID: (int)
+    StudentID: (int)
+    EmployerID: (int)
+    Description: (string)
+    StartedAt: (date)
+    EndedAt: (date)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+Skill 
+    ID: (int)
+    Name: type:(
+            python|javascript|PHP|Java|Kotlin|C#|HTML|CSS|Docker|Terraform|Ansible|Hackerank|Other -> Technical
+            English|Spanish|French|German|Chinese|Japanese|Korean|Russian|Arabic|Portuguese|Other -> Languages
+            Communcation|?|Other -> Soft Skills
+    )
+    MaxValue: (int)
+    Kind: Type: (Backend|Frontend|Database|DevOps|Mobile|Design|Management|Business|Language|Soft|Other)
+    
+SkillItem
+    ID: (int)
+    SkillID: (int)
+    Name: (string)
+    Value: (int)
+    StartedAt: (date)
+    EndedAt: (date)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+StudentSkill
+    StudentID: (int)
+    SkillItemID: (int)
+    StartedAt: (date)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    VIEW: Experience (SUM(EndedAt - StartedAt))
+    Valid: (true|false)
+
+Employer
+    ID: (int)
+    Name: (string)
+    Location: (string)
+    StartedAt: (date)
+    CreatedAt: (date)
+    UpdatedAt: (date)    
+    Valid: (true|false)
+
+Proposal    
+    ID: (int)
+    EmployerID: (int)
+    Title: (string)
+    Description: (string)
+    ContractType (CLT|PJ|Freelancer)
+    ContractDuration (Indeterminado|Determinado|Temporario)
+    ContractDurationTime (X semanas|X meses|X anos)    
+    PartTime (true|false)
+    Remote (true|false)        
+    ExpireAt: (date)
+    StartedAt: (date)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+ProposalRequirements
+    ID: (int)
+    ProposalID: (int)
+    SkillID: (int)
+    Required: (true|false)
+    MinAcceptValue: (Score: 0-100)
+    MinExperience: default 0
+    Priority: 0-100
+    StartedAt: (date)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+Remunaration
+    ID: (int)
+    Description: (string)
+    Currency: (string) (USD|BRL|EUR|JPY|CNY|GBP|CAD|AUD|CHF|SEK|NZD|MXN|SGD|HKD|NOK|KRW|TRY|RUB|INR|BRL|ZAR|Other)
+    Occurrency (annual|montlhy|weekly|hourly|daily|project|other)
+    Type (cash|bonus|benefits|other)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)    
+
+ProposalRemunaration
+    ID: (int)
+    ProposalID: (int)
+    RemunarationID: (int)
+    MinValue: (int)
+    MaxValue: (int)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+Match 
+    ID: (int)
+    ProposalID: (int)
+    StudentID: (int)
+    StudentResult: (true|false)
+    EmployerResult: (true|false)
+    StudentReview: (string)
+    EmployerReview: (string)
+    Status: (pending|accepted|rejected|canceled)
+    CreatedAt: (date)
+    UpdatedAt: (date)
+    Valid: (true|false)
+
+    
