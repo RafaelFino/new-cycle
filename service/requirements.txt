@@ -1,5 +1,2 @@
-uvicorn
-fastapi
-requests
-configparser
-pyyaml
+flask
+sqlalchemy
