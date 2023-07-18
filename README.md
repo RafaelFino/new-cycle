@@ -40,6 +40,7 @@ O projeto New Cycle é uma aplicação web que permite a criação de uma rede s
 
 A estrutura de pastas e arquivos do projeto é a seguinte:
 
+``` python
 - /app
     - app.py: O arquivo principal da aplicação. Contém a configuração e inicialização do aplicativo Flask, bem como a definição das rotas e endpoints da API.
     - config.py: Arquivo de configuração da aplicação. Contém as configurações gerais, como informações de conexão com o banco de dados, configurações de segurança, entre outras.
@@ -61,7 +62,7 @@ A estrutura de pastas e arquivos do projeto é a seguinte:
 - Dockerfile: Arquivo usado para construir a imagem Docker da aplicação. Contém as instruções para criar um contêiner com o ambiente de execução necessário.
 - requirements.txt: Arquivo que lista todas as dependências do projeto. É usado pelo pip para instalar as dependências necessárias.
 - README.md: Documentação detalhada sobre o projeto, incluindo sua descrição, requisitos, instruções de instalação, uso, testes, entre outros.
-
+```
 ## Modelo de Dados
 
 A aplicação utiliza o seguinte modelo de dados:
