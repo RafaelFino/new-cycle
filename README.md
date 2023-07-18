@@ -40,7 +40,7 @@ O projeto New Cycle é uma aplicação web que permite a criação de uma rede s
 
 A estrutura de pastas e arquivos do projeto é a seguinte:
 
-``` kotlin
+``` text
 - /app
     - app.py: O arquivo principal da aplicação. Contém a configuração e inicialização do aplicativo Flask, bem como a definição das rotas e endpoints da API.
     - config.py: Arquivo de configuração da aplicação. Contém as configurações gerais, como informações de conexão com o banco de dados, configurações de segurança, entre outras.
