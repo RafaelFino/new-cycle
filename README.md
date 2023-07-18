@@ -40,15 +40,27 @@ O projeto New Cycle é uma aplicação web que permite a criação de uma rede s
 
 A estrutura de pastas e arquivos do projeto é a seguinte:
 
-- `/app.py`: Arquivo principal da aplicação que inicia o servidor Flask.
-- `/config.py`: Arquivo de configuração com as variáveis de ambiente e configurações da aplicação.
-- `/database.py`: Configuração do banco de dados e definição dos modelos SQLAlchemy.
-- `/routes.py`: Arquivo com as rotas e controladores da aplicação.
-- `/templates/`: Pasta contendo os templates HTML da aplicação.
-- `/static/`: Pasta contendo os arquivos estáticos (CSS, JS, imagens) da aplicação.
-- `/tests/`: Pasta contendo os testes unitários da aplicação.
-- `/docker-compose.yml`: Arquivo de configuração do Docker Compose para executar o ambiente de desenvolvimento.
-- `/requirements.txt`: Arquivo com as dependências Python do projeto.
+- /app
+    - app.py: O arquivo principal da aplicação. Contém a configuração e inicialização do aplicativo Flask, bem como a definição das rotas e endpoints da API.
+    - config.py: Arquivo de configuração da aplicação. Contém as configurações gerais, como informações de conexão com o banco de dados, configurações de segurança, entre outras.
+    - /storage
+        - database.py: Responsável por estabelecer a conexão com o banco de dados PostgreSQL usando a biblioteca SQLAlchemy.
+        - /models
+            - candidate.py: Define o modelo de dados para a entidade Candidate.
+            - employer.py: Define o modelo de dados para a entidade Employer.
+            - experience.py: Define o modelo de dados para a entidade Experience.
+            - skill.py: Define o modelo de dados para a entidade Skill.
+            - utils.py: Contém funções auxiliares relacionadas aos modelos.
+- /tests
+    - test_candidate.py: Contém os testes unitários para a entidade Candidate.
+    - test_employer.py: Contém os testes unitários para a entidade Employer.
+    - test_experience.py: Contém os testes unitários para a entidade Experience.
+    - test_skill.py: Contém os testes unitários para a entidade Skill.
+    - test_utils.py: Contém os testes unitários para as funções auxiliares.
+- docker-compose.yml: Arquivo de configuração para o Docker Compose. Define os serviços do aplicativo, como o servidor Flask, o banco de dados PostgreSQL e outros serviços necessários.
+- Dockerfile: Arquivo usado para construir a imagem Docker da aplicação. Contém as instruções para criar um contêiner com o ambiente de execução necessário.
+- requirements.txt: Arquivo que lista todas as dependências do projeto. É usado pelo pip para instalar as dependências necessárias.
+- README.md: Documentação detalhada sobre o projeto, incluindo sua descrição, requisitos, instruções de instalação, uso, testes, entre outros.
 
 ## Modelo de Dados
 
